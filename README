@@ -1,0 +1,35 @@
+# activitypub-rust-playground
+
+ActivityPub の簡単な実装を Rust で行う実験的なリポジトリです
+
+## References
+
+- How to implement a basic ActivityPub server: https://blog.joinmastodon.org/2018/06/how-to-implement-a-basic-activitypub-server/
+
+## Definitions
+
+### The Actor
+
+ActivityPub における "who" にあたるユーザーを示す JSON-LD ドキュメント.
+
+> The actor is a publicly accessible JSON-LD document answering the question “who”. 
+
+```json
+{
+	"@context": [
+		"https://www.w3.org/ns/activitystreams",
+		"https://w3id.org/security/v1"
+	],
+
+	"id": "https://my-example.com/actor",
+	"type": "Person",
+	"preferredUsername": "alice",
+	"inbox": "https://my-example.com/inbox",
+
+	"publicKey": {
+		"id": "https://my-example.com/actor#main-key",
+		"owner": "https://my-example.com/actor",
+		"publicKeyPem": "-----BEGIN PUBLIC KEY-----...-----END PUBLIC KEY-----"
+	}
+}
+```
